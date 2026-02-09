@@ -5,14 +5,14 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
         // Crear 3 conciertos
-        Concierto concierto1 = new Concierto("Coldplay", "Madrid", 50.0, 5000,ArrayList<>(),true );
-        Concierto concierto2 = new Concierto("Rosalía", "Barcelona", 45.0, 3000,ArrayList<>(),true);
-        Concierto concierto3 = new Concierto("Metallica", "Sevilla", 60.0, 8000,ArrayList<>(),true);
+        Concierto concierto1 = new Concierto("Coldplay", "Madrid", 50.0, 5000,new ArrayList<>(),true );
+        Concierto concierto2 = new Concierto("Rosalía", "Barcelona", 45.0, 3000,new ArrayList<>(),true);
+        Concierto concierto3 = new Concierto("Metallica", "Sevilla", 60.0, 8000,new ArrayList<>(),true);
 
         // Crear 3 usuarios
-        Usuario usuario1 = new Usuario("Ana García", 25, ArrayList<>(), HashSet<>(),HashMap<>());
-        Usuario usuario2 = new Usuario("Pedro López", 30,ArrayList<>(), HashSet<>(),HashMap<>());
-        Usuario usuario3 = new Usuario("María Rodríguez", 28,ArrayList<>(), HashSet<>(),HashMap<>());
+        Usuario usuario1 = new Usuario("Ana García", 25, new ArrayList<>(), new HashSet<>(),new HashMap<>());
+        Usuario usuario2 = new Usuario("Pedro López", 30,new ArrayList<>(), new HashSet<>(),new HashMap<>());
+        Usuario usuario3 = new Usuario("María Rodríguez", 28,new ArrayList<>(), new HashSet<>(),new HashMap<>());
 
         // Hacer que cada usuario compre entradas para 2 conciertos
         // Usuario 1 compra 2 entradas
