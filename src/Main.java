@@ -42,78 +42,43 @@ public class Main {
         usuario3.valorar(concierto1, 10);
 
         // ESTADÍSTICAS
-        System.out.println("ESTADÍSTICAS GENERALES");
+        Concierto[] conciertos = {concierto1, concierto2, concierto3};
 
-        // Número de entradas vendidas en total
-        int entradasTotales = concierto1.getEntradasVendidas().size() +
-                concierto2.getEntradasVendidas().size() +
-                concierto3.getEntradasVendidas().size();
-        System.out.println("Número total de entradas vendidas: " + entradasTotales);
+        int totalEntradas = 0;
+        int pista = 0, grada = 0, vip = 0;
+        double recaudacionTotal = 0;
 
-        // Número de entradas vendidas de cada tipo
-        int entradasPista = 0;
-        int entradasGrada = 0;
-        int entradasVIP = 0;
+        Concierto masVendido = concierto1;
+        Concierto menosVendido = concierto1;
 
-        // Contar entradas del concierto1
-        for (Entrada entrada : concierto1.getEntradasVendidas()) {
-            if (entrada.getTipo() == Entrada.TipoEntrada.PISTA) entradasPista++;
-            else if (entrada.getTipo() == Entrada.TipoEntrada.GRADA) entradasGrada++;
-            else if (entrada.getTipo() == Entrada.TipoEntrada.VIP) entradasVIP++;
+        for (Concierto c : conciertos) {
+            int vendidas = c.getEntradasVendidas().size();
+            totalEntradas += vendidas;
+            recaudacionTotal += c.calcularRecaudacion();
+
+            if (vendidas > masVendido.getEntradasVendidas().size()) {
+                masVendido = c;
+            }
+            if (vendidas < menosVendido.getEntradasVendidas().size()) {
+                menosVendido = c;
+            }
+
+            for (Entrada e : c.getEntradasVendidas()) {
+                switch (e.getTipo()) {
+                    case PISTA -> pista++;
+                    case GRADA -> grada++;
+                    case VIP -> vip++;
+                }
+            }
         }
 
-        // Contar entradas del concierto2
-        for (Entrada entrada : concierto2.getEntradasVendidas()) {
-            if (entrada.getTipo() == Entrada.TipoEntrada.PISTA) entradasPista++;
-            else if (entrada.getTipo() == Entrada.TipoEntrada.GRADA) entradasGrada++;
-            else if (entrada.getTipo() == Entrada.TipoEntrada.VIP) entradasVIP++;
-        }
+        double precioMedio = totalEntradas == 0 ? 0 : recaudacionTotal / totalEntradas;
 
-        // Contar entradas del concierto3
-        for (Entrada entrada : concierto3.getEntradasVendidas()) {
-            if (entrada.getTipo() == Entrada.TipoEntrada.PISTA) entradasPista++;
-            else if (entrada.getTipo() == Entrada.TipoEntrada.GRADA) entradasGrada++;
-            else if (entrada.getTipo() == Entrada.TipoEntrada.VIP) entradasVIP++;
-        }
-
-        System.out.println("Entradas vendidas por tipo:");
-        System.out.println("- Pista: " + entradasPista);
-        System.out.println("- Grada: " + entradasGrada);
-        System.out.println("- VIP: " + entradasVIP);
-
-        // Recaudación total
-        double recaudacionTotal = concierto1.calcularRecaudacion() +
-                concierto2.calcularRecaudacion() +
-                concierto3.calcularRecaudacion();
+        System.out.println("Entradas vendidas totales: " + totalEntradas);
+        System.out.println("Pista: " + pista + ", Grada: " + grada + ", VIP: " + vip);
         System.out.println("Recaudación total: " + recaudacionTotal + " €");
-
-        // Precio medio de todas las entradas
-        double precioMedioTotal = 0.0;
-        if (entradasTotales > 0) {
-            precioMedioTotal = recaudacionTotal / entradasTotales;
-        }
-        System.out.println("Precio medio de todas las entradas: " + precioMedioTotal + " €");
-
-        // Concierto con más entradas vendidas
-        Concierto conciertoMax = concierto1;
-        if (concierto2.getEntradasVendidas().size() > conciertoMax.getEntradasVendidas().size()) {
-            conciertoMax = concierto2;
-        }
-        if (concierto3.getEntradasVendidas().size() > conciertoMax.getEntradasVendidas().size()) {
-            conciertoMax = concierto3;
-        }
-        System.out.println("Concierto con más entradas vendidas: " + conciertoMax +
-                " (" + conciertoMax.getEntradasVendidas().size() + " entradas)");
-
-        // Concierto con menos entradas vendidas
-        Concierto conciertoMin = concierto1;
-        if (concierto2.getEntradasVendidas().size() < conciertoMin.getEntradasVendidas().size()) {
-            conciertoMin = concierto2;
-        }
-        if (concierto3.getEntradasVendidas().size() < conciertoMin.getEntradasVendidas().size()) {
-            conciertoMin = concierto3;
-        }
-        System.out.println("Concierto con menos entradas vendidas: " + conciertoMin +
-                " (" + conciertoMin.getEntradasVendidas().size() + " entradas)");
+        System.out.println("Precio medio: " + precioMedio + " €");
+        System.out.println("Concierto con más entradas: " + masVendido + " (" + masVendido.getEntradasVendidas().size() + ")");
+        System.out.println("Concierto con menos entradas: " + menosVendido + " (" + menosVendido.getEntradasVendidas().size() + ")");
     }
 }
