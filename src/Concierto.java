@@ -1,3 +1,5 @@
+import exceptions.CeroEntradasException;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -80,12 +82,11 @@ public class Concierto {
 
         return recaudacionTotal;
     }
-    //Metodo calcular precio medio
-    public double calcularPrecioMedio() {
+    // Metodo calcularPrecioMedio
+    public double calcularPrecioMedio() throws CeroEntradasException {
         if (entradasVendidas.isEmpty()) {
-            return 0.0;
+            throw new CeroEntradasException();
         }
-
         return calcularRecaudacion() / entradasVendidas.size();
     }
     //Metodo calcula las entradas disponibles
