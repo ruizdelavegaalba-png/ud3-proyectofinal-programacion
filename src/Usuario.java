@@ -41,12 +41,6 @@ public class Usuario {
     public HashMap<Concierto, Integer> getValoraciones() { return valoraciones; }
     public void setValoraciones(HashMap<Concierto, Integer> valoraciones) { this.valoraciones = valoraciones; }
 
-    /**
-     * Compra una entrada para el concierto indicado.
-     * @throws ConciertoInactivoException  si el concierto no está activo
-     * @throws ConciertoYaAsistidoException si el usuario ya asistió al concierto
-     * @throws AforoCompletoException       si no quedan entradas disponibles
-     */
     public void comprarEntrada(Concierto concierto, Entrada.TipoEntrada tipo)
             throws ConciertoInactivoException, ConciertoYaAsistidoException, AforoCompletoException {
 
@@ -68,11 +62,6 @@ public class Usuario {
         System.out.println("Entrada comprada exitosamente: " + nuevaEntrada);
     }
 
-    /**
-     * Valora un concierto al que el usuario ha asistido.
-     * @throws ConciertoNoAsistidoException si el usuario no ha asistido al concierto
-     * @throws ValoracionIncorrecta         si la valoración no está entre 0 y 10
-     */
     public void valorar(Concierto concierto, int valoracion)
             throws ConciertoNoAsistidoException, ValoracionIncorrecta {
 
