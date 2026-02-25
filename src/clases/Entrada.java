@@ -1,3 +1,5 @@
+package clases;
+
 import java.util.Objects;
 
 public class Entrada {
@@ -60,6 +62,6 @@ public class Entrada {
     //Representacion del texto
     @Override
     public String toString() {
-        return "Entrada de " + getPrecioTotal() + " €";
+        return "clases.Entrada de " + getPrecioTotal() + " €";
     }
 }

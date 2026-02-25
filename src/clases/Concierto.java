@@ -1,3 +1,5 @@
+package clases;
+
 import exceptions.CeroEntradasException;
 
 import java.util.ArrayList;
@@ -109,7 +111,7 @@ public class Concierto {
     //Representacion del texto
     @Override
     public String toString() {
-        return "Concierto de " + this.artista + " en " + this.ciudad;
+        return "clases.Concierto de " + this.artista + " en " + this.ciudad;
     }
 
 }

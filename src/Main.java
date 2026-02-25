@@ -1,3 +1,6 @@
+import clases.Concierto;
+import clases.Entrada;
+import clases.Usuario;
 import exceptions.*;
 
 import java.util.ArrayList;
@@ -10,11 +13,11 @@ public class Main {
         Concierto concierto1 = new Concierto("Coldplay",  "Madrid",    50.0, 5000, new ArrayList<>(), true);
         Concierto concierto2 = new Concierto("Rosalía",   "Barcelona", 45.0, 3000, new ArrayList<>(), true);
         Concierto concierto3 = new Concierto("Metallica", "Sevilla",   60.0, 8000, new ArrayList<>(), true);
-        // Concierto inactivo para provocar ConciertoInactivoException
+        // clases.Concierto inactivo para provocar ConciertoInactivoException
         Concierto conciertoInactivo = new Concierto("Prueba", "Valencia", 30.0, 100, new ArrayList<>(), false);
         conciertoInactivo.setActivo(false);
 
-        // Concierto con aforo 1 para provocar AforoCompletoException
+        // clases.Concierto con aforo 1 para provocar AforoCompletoException
         Concierto conciertoLleno = new Concierto("CapacidadUno", "Bilbao", 40.0, 1, new ArrayList<>(), true);
 
         Usuario usuario1 = new Usuario("Ana García",       25, new ArrayList<>(), new HashSet<>(), new HashMap<>());
@@ -135,7 +138,7 @@ public class Main {
         System.out.println("Pista: " + pista + ", Grada: " + grada + ", VIP: " + vip);
         System.out.println("Recaudación total: " + recaudacionTotal + " €");
         System.out.println("Precio medio: " + precioMedio + " €");
-        System.out.println("Concierto con más entradas:  " + masVendido   + " (" + masVendido.getEntradasVendidas().size()   + ")");
-        System.out.println("Concierto con menos entradas: " + menosVendido + " (" + menosVendido.getEntradasVendidas().size() + ")");
+        System.out.println("clases.Concierto con más entradas:  " + masVendido   + " (" + masVendido.getEntradasVendidas().size()   + ")");
+        System.out.println("clases.Concierto con menos entradas: " + menosVendido + " (" + menosVendido.getEntradasVendidas().size() + ")");
     }
 }

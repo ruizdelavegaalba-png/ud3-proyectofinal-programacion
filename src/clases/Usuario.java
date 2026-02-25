@@ -1,3 +1,5 @@
+package clases;
+
 import exceptions.*;
 
 import java.util.ArrayList;
@@ -59,7 +61,7 @@ public class Usuario {
         entradasCompradas.add(nuevaEntrada);
         conciertosAsistidos.add(concierto);
 
-        System.out.println("Entrada comprada exitosamente: " + nuevaEntrada);
+        System.out.println("clases.Entrada comprada exitosamente: " + nuevaEntrada);
     }
 
     public void valorar(Concierto concierto, int valoracion)

@@ -1,3 +1,6 @@
+package test;
+import clases.Concierto;
+import clases.Entrada;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;

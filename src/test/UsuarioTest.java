@@ -1,3 +1,7 @@
+package test;
+import clases.Concierto;
+import clases.Entrada;
+import clases.Usuario;
 import exceptions.ConciertoNoAsistidoException;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
